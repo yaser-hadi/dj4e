@@ -49,7 +49,7 @@ class BreedCreate(LoginRequiredMixin, View):
 
 
 # BreedUpdate has code to implement the get/post/validate/store flow
-# AutoUpdate (below) is doing the same thing with no code
+# CatUpdate (below) is doing the same thing with no code
 # and no form by extending UpdateView
 class BreedUpdate(LoginRequiredMixin, View):
     model = Breed
@@ -93,20 +93,20 @@ class BreedDelete(LoginRequiredMixin, View):
 # These views do not need a form because CreateView, etc.
 # Build a form object dynamically based on the fields
 # value in the constructor attributes
-class AutoCreate(LoginRequiredMixin, CreateView):
-    model = Auto
+class CatCreate(LoginRequiredMixin, CreateView):
+    model = Cat
     fields = '__all__'
     success_url = reverse_lazy('cats:all')
 
 
-class AutoUpdate(LoginRequiredMixin, UpdateView):
-    model = Auto
+class CatUpdate(LoginRequiredMixin, UpdateView):
+    model = Cat
     fields = '__all__'
     success_url = reverse_lazy('cats:all')
 
 
-class AutoDelete(LoginRequiredMixin, DeleteView):
-    model = Auto
+class CatDelete(LoginRequiredMixin, DeleteView):
+    model = Cat
     fields = '__all__'
     success_url = reverse_lazy('cats:all')
 
